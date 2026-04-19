@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+        <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const texts = [
+        " Computer Science Student",
+        " Frontend Developer",
+        " Backend Developer",
+        " Problem Solver",
+        " Logic Builder"
+    ];
+
+    let index = 0;
+    let charIndex = 0;
+    const textElement = document.getElementById("changing-text");
+
+    function type() {
+        if (charIndex < texts[index].length) {
+            textElement.textContent += texts[index].charAt(charIndex);
+            charIndex++;
+            setTimeout(type, 100);
+        } else {
+            setTimeout(erase, 1500); // wait 1.5s before erase
+        }
+    }
+
+    function erase() {
+        if (charIndex > 0) {
+            textElement.textContent = texts[index].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(erase, 50);
+        } else {
+            // Cursor stays at same position, next word starts from same spot
+            index = (index + 1) % texts.length;
+            setTimeout(type, 500); // small delay before typing next
+        }
+    }
+
+    type(); // start typing
+});
+</script>
+
+
+    <script>
+    let menuOpen = false;
+
+    function toggleMenu() {
+        const menu = document.getElementById("sideMenu");
+
+        if (menuOpen) {
+            menu.style.right = "-250px";
+        } else {
+            menu.style.right = "0";
+        }
+
+        menuOpen = !menuOpen;
+    }
+
+    function closeMenu() {
+        document.getElementById("sideMenu").style.right = "-250px";
+        menuOpen = false;
+    }
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+    <div class="Container">
+        <div class="Header">
+            <div class="Bar">
+                <div class="Name">
+                    <H3>Anjali</H3>
+                </div>
+                <div class="Mode">
+                    <img src="icons8-night-48.png" alt="">
+                </div>
+                <div class="Menu" onclick="toggleMenu()">
+                    <img src="icons8-menu-48.png" alt="">
+
+                </div>
+            </div>
+        </div>
+        <div id="sideMenu" class="side-menu">
+            <a href="#home" onclick="closeMenu()">Home</a>
+            <a href="#about" onclick="closeMenu()">About</a>
+            <a href="#skills" onclick="closeMenu()">Skills</a>
+            <a href="#projects" onclick="closeMenu()">Projects</a>
+            <a href="#contact" onclick="closeMenu()">Contact</a>
+        </div>
+
+        <div class="Main">
+            <section id="home">
+                <h4>Hello, I'm</h4>
+                <h1>Anjali Singh</h1>
+                <p class="intro-line">
+                    A&nbsp; <span id="changing-text"></span>
+                </p>
+                <p id="contents">
+                    I am passionate about frontend development and backend development. I enjoy turning ideas into responsive and user-friendly websites.
+                </p>
+                <div class="button">
+                    <a href="#contact" class="b1">Contact Me</a>
+                    <a href="Anjali singh (RESUME).pdf" download class="b2">
+                        Download Resume
+                    </a>
+                </div>
+                <div class="image">
+                    <img src="IMG2.png" alt="">
+                </div>
+            </section>
+            <section id="about">
+                <h2 id="Headings">About Me</h2><hr>
+                <p id="content">I enjoy building responsive and user-friendly websites, creating efficient backend solutions, 
+                    and solving challenging problems with logical and structured thinking.
+                </p>
+                <div class="box">
+                    <div class="boxes">
+                        <h3><i class="fas fa-location-dot"></i>From</h3>
+                        <p>I am from Dhatiwna(Gopalganj), Bihar and completed my academics from Uttar Pradesh. 
+                        Currently I am pursuing Bachelor of Computer Application From GLA University,Mathura.</p>
+                    </div>
+                    <div class="boxes">
+                        <h3><i class="fas fa-graduation-cap"></i>Currently</h3>
+                        <p>
+                        Currently I am learning DSA ,Java , Python, Web Development, Digital Marketing, Iot and exploring emerging AI trends.</p> </div>
+                    <div class="boxes">
+                        <h3><i class="fas fa-rocket"></i>What I do</h3>
+                        <p>I have worked on academic and personal projects involving data analytics, dashboard ,web applications </p> </div>
+                    <div class="boxes">
+                        <h3><i class="fas fa-bullseye"></i>Goals</h3>
+                        <p>My goals are quite clear to me... and currently focusing on it. Work in.</p></div>
+                </div>
+            </section>
+            <section id="skills">
+                <h2 id="Headings">Skills & Tools</h2><hr>
+                <p id="content">Technologies and tools, I used to build efficient and user-friendly solutions.
+                </p>
+                <div class="box">
+                    <div class="boxes">
+                        <img src="icons8-cafe-64 (1).png" alt="">
+                        <h3>Programming</h3><hr>
+                        <div class="name">
+                            <div class="names">D S A</div>
+                            <div class="names">Java</div>
+                            <div class="names">Python</div>
+                            <div class="names">C,C++</div>
+                        </div>
+                    </div>
+                    <div class="boxes">
+                        <i class="fa-solid fa-database"></i>
+                        <h3>Databases</h3><hr>
+                        <div class="name">
+                            <div class="names">Oracle</div>
+                            <div class="names">MySQL</div>
+                            <div class="names">MongoDB</div>
+                        </div>
+                    </div>
+                    <div class="boxes">
+                        <i class="fa-solid fa-laptop-code web-icon"></i> 
+                        <H3>Web Development</H3><hr>
+                        <div class="name">
+                            <div class="names">HTML5</div>
+                            <div class="names">CSS3</div>
+                            <div class="names">JavaScript</div>
+                        </div>
+                    </div>
+                    <div class="boxes">
+                        <i class="fa-solid fa-toolbox tools-icon"></i>
+
+                        <h3>Tools</h3><hr>
+                        <div class="name">
+                            <div class="names">Github</div>
+                            <div class="names">Eclipse</div>
+                            <div class="names">VS Code</div>
+                            <div class="names">Arduino</div>
+                            <div class="names">WordPress</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="projects">
+                <h2 id="Headings">Projects</h2><hr>
+                <p id="content">Academic and personal projects demonstrating my skills.
+                </p>
+                <div class="box">
+                <div class="boxes">
+                    <div class="img">
+                        <a href="foodguard.html"><img src="logo.png" alt="Foodguard"></a>
+                    </div>
+               </div>
+               </div>
+            </section>
+            <section id="Get">
+                <h2 id="Headings">Get in Touch</h2>
+                <p id="content">I’d love to hear from you, feel free to get in touch for opportunities or collaborations.
+                </p>
+                <div class="profiles">
+                <h3>
+                    <a href="#contact" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-envelope email"></i>Email
+                    </a>
+                    </h3>
+
+                    <h3>
+                    <a href="https://github.com/dashboard" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-github"></i>Github
+                    </a>
+                    </h3>
+
+                    <h3>
+                    <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-linkedin"></i>LinkedIn
+                    </a>
+                    </h3>
+                </div>
+            </section>
+            <section id="contact">
+            <div class="contact">
+
+                <form action="https://formsubmit.co/rumjhumsingh355@gmail.com" method="POST">
+
+                <h3>Your name</h3>
+                <input type="text" name="name" placeholder="Enter your name" required>
+
+                <h3>Your email</h3>
+                <input type="email" name="email" placeholder="Enter your email" required>
+
+                <h3>Message</h3>
+                <textarea name="message" rows="3" cols="50" placeholder="Write your message..." required></textarea><br>
+
+                <!-- Hidden settings -->
+                <input type="hidden" name="_subject" value="New message from your website!">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://vish-as09.github.io/Portfolio/#contact">
+
+                <button type="submit" class="b1">SEND</button>
+
+                </form>
+
+            </div>
+            </section>
+
+
+        </div>
+        <div class="Footer"></div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

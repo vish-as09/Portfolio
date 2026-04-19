@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Guard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F9F0FF;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 30px;
+            font-size: 40px;
+            color: #6F90D9;
+        }
+
+        .box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            padding: 40px;
+        }
+
+        .box img {
+            width: 280px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 20px;
+            padding: 10px;
+            border-top: 5px solid #01123B;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .box img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            width: 50%;
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from {transform: scale(0.5);}
+            to {transform: scale(1);}
+        }
+
+        .modal-content img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .modal-content p {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 90%;
+            }
+        }
+        @media (max-width: 480px) {
+        .box img {
+            width: 100%;
+            height: auto;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+    }
+    </style>
+</head>
+
+<body>
+
+<h1>FOOD GUARD</h1>
+
+<div class="box">
+    <img src="login.png" data-text="Welcome to login page ❤️" onclick="toggleModal(this)">
+    <img src="register.png" data-text="Create your account easily ✨" onclick="toggleModal(this)">
+    <img src="list.png" data-text="Here is your food list 🍽️" onclick="toggleModal(this)">
+    <img src="options.png" data-text="Choose your options ⚙️" onclick="toggleModal(this)">
+    <img src="add.png" data-text="Add food manually ➕" onclick="toggleModal(this)">
+    <img src="profile.png" data-text="This is your profile 👤" onclick="toggleModal(this)">
+    <img src="contact.png" data-text="Contact us anytime 📞" onclick="toggleModal(this)">
+    <img src="backend.png" data-text="Backend working ⚡" onclick="toggleModal(this)">
+    <img src="backendContent.png" data-text="Data processing here 💻" onclick="toggleModal(this)">
+    <img src="backendMessage.png" data-text="Messages from backend 📩" onclick="toggleModal(this)">
+</div>
+
+<!-- Modal -->
+<div id="modal" class="modal" onclick="toggleModal()">
+    <div class="modal-content">
+        <img id="modal-img">
+        <p id="modal-text"></p>
+    </div>
+</div>
+
+<script>
+let isOpen = false;
+
+function toggleModal(img) {
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modal-img");
+    const modalText = document.getElementById("modal-text");
+
+    if (!isOpen && img) {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+        modalText.innerText = img.getAttribute("data-text");
+        isOpen = true;
+    } else {
+        modal.style.display = "none";
+        isOpen = false;
+    }
+}
+</script>
+
+</body>
+</html>
