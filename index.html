@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "light");
+    </script>
     <link rel="stylesheet" href="style.css">
+    <script src="theme.js" defer></script>
         <script>
 document.addEventListener("DOMContentLoaded", function () {
     const texts = [
@@ -51,18 +55,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function toggleMenu() {
         const menu = document.getElementById("sideMenu");
-
-        if (menuOpen) {
-            menu.style.right = "-250px";
-        } else {
-            menu.style.right = "0";
-        }
-
+        menu.classList.toggle("open");
         menuOpen = !menuOpen;
     }
 
     function closeMenu() {
-        document.getElementById("sideMenu").style.right = "-250px";
+        document.getElementById("sideMenu").classList.remove("open");
         menuOpen = false;
     }
 </script>
@@ -78,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <H3>Anjali</H3>
                 </div>
                 <div class="Mode">
-                    <img src="icons8-night-48.png" alt="">
+                    <img src="icons8-night-48.png" alt="Switch to dark mode">
                 </div>
                 <div class="Menu" onclick="toggleMenu()">
                     <img src="icons8-menu-48.png" alt="">
@@ -188,13 +186,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 <h2 id="Headings">Projects</h2><hr>
                 <p id="content">Academic and personal projects demonstrating my skills.
                 </p>
-                <div class="box">
-                <div class="boxes">
-                    <div class="img">
-                        <a href="foodguard.html"><img src="logo.png" alt="Foodguard"></a>
+                <div class="project-box">
+                    <div class="project-card">
+                        <a href="snapshot.html">
+                            <img src="logo2.png" alt="Snapshot">
+                        </a>
                     </div>
-               </div>
-               </div>
+                    <div class="project-card">
+                        <a href="foodguard.html">
+                            <img src="logo.png" alt="Foodguard">
+                        </a>
+                    </div>
+                </div>
             </section>
             <section id="Get">
                 <h2 id="Headings">Get in Touch</h2>
