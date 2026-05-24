@@ -2,6 +2,11 @@
 html {
     scroll-behavior: smooth;
 }
+
+body {
+    background-color: #F9F0FF;
+}
+
 a{
     text-decoration: none;
 }
@@ -32,6 +37,12 @@ a{
 }
 .Mode{
     margin-left: auto; 
+    cursor: pointer;
+}
+.Mode img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
 }
 .Menu{
     margin-left: 15px;
@@ -89,8 +100,13 @@ a{
     text-align: center;
     color: #6F90D9;
 }
+.side-menu.open {
+    right: 0;
+}
 .side-menu a{
     text-decoration: none;
+    color: #6F90D9;
+    font-weight: 500;
 }
 .button{
     margin-left: 40px;
@@ -236,11 +252,128 @@ H2{
     justify-content:space-evenly;
 }
 /*project boxes images*/
-.img img {
-    height: 200px;   /* change as you want */
+.project-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.project-card {
+    width: 260px;
+    height: 220px;
+    padding: 20px;
+    border-width: 5px 0 0 0;
+    border-style: solid;
+    border-color: #01123B;
+    border-radius: 30px;
+    background-color: #FEFCFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.project-card a {
     width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-card img {
+    max-width: 100%;
+    max-height: 180px;
     object-fit: contain;
 }
+
+/* ================= THEME TOGGLE ================= */
+[data-theme="dark"] body,
+[data-theme="dark"] .Container {
+    background-color: #111827;
+}
+
+[data-theme="dark"] .Bar,
+[data-theme="dark"] .side-menu,
+[data-theme="dark"] #contents,
+[data-theme="dark"] #content,
+[data-theme="dark"] .boxes,
+[data-theme="dark"] .contact,
+[data-theme="dark"] .project-card {
+    background-color: #1F2937;
+}
+
+[data-theme="dark"] .Main,
+[data-theme="dark"] #contents,
+[data-theme="dark"] #content,
+[data-theme="dark"] .boxes,
+[data-theme="dark"] .contact {
+    color: #E5E7EB;
+}
+
+[data-theme="dark"] .Name,
+[data-theme="dark"] .Main h1,
+[data-theme="dark"] .side-menu,
+[data-theme="dark"] .side-menu a,
+[data-theme="dark"] #Get a,
+[data-theme="dark"] .boxes i {
+    color: #A5B4FC;
+}
+
+[data-theme="dark"] h2,
+[data-theme="dark"] .boxes h3,
+[data-theme="dark"] .intro-line {
+    color: #F9FAFB;
+}
+
+[data-theme="dark"] .boxes,
+[data-theme="dark"] .project-card {
+    border-color: #93C5FD;
+}
+
+[data-theme="dark"] .b1,
+[data-theme="dark"] .b2:hover {
+    background-color: #93C5FD;
+    color: #111827;
+    border-color: #93C5FD;
+}
+
+[data-theme="dark"] .b2,
+[data-theme="dark"] .b1:hover {
+    background-color: transparent;
+    color: #93C5FD;
+    border-color: #93C5FD;
+}
+
+[data-theme="dark"] .names {
+    background-color: #374151;
+    color: #F9FAFB;
+    border-color: #6B7280;
+}
+
+[data-theme="dark"] .Menu img {
+    filter: brightness(0) invert(1);
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+    background-color: #111827;
+    color: #F9FAFB;
+    border-color: #4B5563;
+}
+
+[data-theme="dark"] ::placeholder {
+    color: #9CA3AF;
+}
+
 /* ================= MOBILE RESPONSIVE ================= */
 
 @media (max-width: 768px) {
@@ -304,6 +437,11 @@ H2{
     .boxes {
         width: 90%;
         height: auto;
+    }
+
+    .project-card {
+        width: 90%;
+        height: 200px;
     }
 
     /* Skills tags */
