@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snapshot</title>
+    <script>
+        document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "light");
+    </script>
+    <script src="./theme.js" defer></script>
+
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F9F0FF;
+            text-align: center;
+        }
+
+        .top-bar {
+            height: 50px;
+            padding: 0 20px;
+            background-color: #FEFCFF;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .top-bar a {
+            color: #6F90D9;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+        }
+
+        .theme-toggle img {
+            height: 32px;
+            width: 32px;
+        }
+
+        h1 {
+            margin-top: 30px;
+            font-size: 40px;
+            color: #6F90D9;
+        }
+        h2 {
+            margin-top: 20px;
+            font-size: 30px;
+            color: #6F90D9;
+        }
+        .box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            padding: 40px;
+        }
+
+        .box img {
+            width: 280px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 20px;
+            padding: 10px;
+            border-top: 5px solid #01123B;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .box img:hover {
+            transform: scale(1.05);
+        }
+        .heading-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .ppt-link {
+            background-color: #01123B;
+            color: #FEFCFF;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            width: 50%;
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            animation: zoomIn 0.3s ease;
+        }
+        .heading-row a{
+            background-color:#01123B; 
+            color:#FEFCFF;  
+            font-weight: bold;            
+            padding: 10px 20px;
+            border-radius:30px;
+            border: 2px solid #01123B;
+            }
+        .objective {
+            width: 80%;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #FEFCFF;
+            color: #484B66;
+            border-left: 6px solid #01123B;
+            border-radius: 20px;
+            font-size: 18px;
+            line-height: 1.7;
+            text-align: justify;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }  
+        @keyframes zoomIn {
+            from {transform: scale(0.5);}
+            to {transform: scale(1);}
+        }
+
+        .modal-content img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .modal-content p {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+        [data-theme="dark"] body {
+            background-color: #111827;
+            color: #E5E7EB;
+        }
+
+        [data-theme="dark"] .top-bar,
+        [data-theme="dark"] .objective,
+        [data-theme="dark"] .modal-content {
+            background-color: #1F2937;
+            color: #E5E7EB;
+        }
+
+        [data-theme="dark"] h1,
+        [data-theme="dark"] h2,
+        [data-theme="dark"] .top-bar a {
+            color: #A5B4FC;
+        }
+
+        [data-theme="dark"] .objective,
+        [data-theme="dark"] .box img {
+            border-color: #93C5FD;
+        }
+
+        [data-theme="dark"] .ppt-link,
+        [data-theme="dark"] .heading-row a {
+            background-color: #93C5FD;
+            color: #111827;
+            border-color: #93C5FD;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 90%;
+            }
+        }
+        @media (max-width: 480px) {
+        .box img {
+            width: 100%;
+            height: auto;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+    }
+    </style>
+</head>
+
+<body>
+
+<div class="top-bar">
+    <a href="index.html">Anjali</a>
+    <div class="theme-toggle">
+        <img src="icons8-night-48.png" alt="Switch to dark mode">
+    </div>
+</div>
+
+<h1>Any-Wishes[birthday]</h1>
+
+<p class="objective">
+    “The objective of the ANY_WISHES project is to develop an interactive
+     and user-friendly web application that allows users to create and share
+      personalized wishes digitally while demonstrating modern frontend web 
+    development, responsive design, and creative UI/UX implementation skills.”
+    <br>For more knowledge: <br>Live URL:
+     <a href="https://vish-as09.github.io/ANY_WISHES/" class="ppt-link" target="_blank">
+       https://vish-as09.github.io/ANY_WISHES/
+    </a>
+</p>
+<h2>Project Overview</h2>
+<div class="box">
+    <img src="p3-1.png" data-text="Welcome to home page ❤️" onclick="toggleModal(this)">
+    <img src="p3-2.png" data-text="Select Yes / No ✨" onclick="toggleModal(this)">
+    <img src="p3-3.png" data-text="NO leads to this section" onclick="toggleModal(this)">
+    <img src="p3-4.png" data-text="YES leads to this section" onclick="toggleModal(this)">
+    <img src="p3-5.png" data-text="Enter pin " onclick="toggleModal(this)">
+    <img src="p3-6.png" data-text="Melody messages " onclick="toggleModal(this)">
+</div>
+
+
+<!-- Modal -->
+<div id="modal" class="modal" onclick="toggleModal()">
+    <div class="modal-content">
+        <img id="modal-img">
+        <p id="modal-text"></p>
+    </div>
+</div>
+
+<script>
+let isOpen = false;
+
+function toggleModal(img) {
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modal-img");
+    const modalText = document.getElementById("modal-text");
+
+    if (!isOpen && img) {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+        modalText.innerText = img.getAttribute("data-text");
+        isOpen = true;
+    } else {
+        modal.style.display = "none";
+        isOpen = false;
+    }
+}
+</script>
+
+</body>
+</html>
